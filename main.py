@@ -187,5 +187,5 @@ question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "-
 for question in question_options:
     if st.button(question):
         response = chatbot.get_response(question)
-        st.write(f"{question}에 대한 응답을 해보겠습니다.")
+        st.write(f"{question}라는 질문을 받았습니다.")
         st.write(f"{response}")
