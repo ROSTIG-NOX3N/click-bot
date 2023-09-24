@@ -23,30 +23,46 @@ from streamlit_folium import st_folium
 from streamlit_option_menu import option_menu
 from streamlit_js_eval import get_browser_language
 
-# 질문과 대답을 정의한 딕셔너리
-qa_dict = {
-    "안녕": ["안녕하세요!", "안녕하십니까?", "안녕이요!"],
-    "오늘 날씨 어때?": ["오늘은 맑아요.", "비가 올 것 같아요.", "날씨는 꽤 괜찮아요."],
-    "이름이 뭐야?": ["제 이름은 챗봇이에요.", "저는 챗봇입니다.", "저는 이름이 없어요."],
-    "잘 지내니?": ["네, 잘 지내고 있어요.", "그럭저럭 괜찮아요.", "좋은 날이에요."],
-    "사용법을 가르쳐줘.": ["물어보고 싶은 질문을 입력하고 엔터 키를 누르세요."],
-}
+class ChatBot:
+    def __init__(self):
+        self.responses = {}
+        self.last_question = None
 
-# 챗봇 함수 정의
-def chat_with_bot(user_input):
-    user_input = user_input.strip()
-    if user_input in qa_dict:
-        responses = qa_dict[user_input]
-        return random.choice(responses)
-    else:
-        return "그 질문에 대한 대답을 모르겠어요."
+    def add_response(self, question, answer):
+        self.responses[question] = answer
 
-# 간단한 챗봇 인터페이스
-while True:
-    user_input = input("사용자: ")
-    if user_input.lower() == "종료":
-        print("챗봇: 대화를 종료합니다.")
-        break
-    response = chat_with_bot(user_input)
-    print("챗봇:", response)
+    def get_response(self, question):
+        if question == self.last_question:
+            response = random.choice(list(self.responses.values()))
+        else:
+            response = self.responses.get(question, "그 질문에 대한 답변을 모르겠어요.")
+        self.last_question = question
+        return response
+
+# 챗봇 인스턴스 생성
+chatbot = ChatBot()
+
+# 예제 답변 추가
+chatbot.add_response("안녕", "안녕하세요!")
+chatbot.add_response("날씨 어때?", "오늘은 맑아요.")
+chatbot.add_response("이름이 뭐야?", "저는 챗봇이에요.")
+
+# Streamlit 애플리케이션 정의
+def main():
+    st.title("버튼 클릭형 챗봇")
+
+    # 사용자 입력 받기
+    user_input = st.text_input("사용자 입력:")
+
+    # 버튼 클릭 이벤트 처리
+    if st.button("챗봇에게 질문"):
+        if user_input:
+            # 사용자 입력을 챗봇에 전달하고 응답 받기
+            bot_response = chatbot.get_response(user_input)
+
+            # 챗봇 응답 출력
+            st.write("챗봇 응답:", bot_response)
+
+if __name__ == "__main__":
+    main()
 
