@@ -38,14 +38,19 @@ class ChatBot:
 chatbot = ChatBot()
 
 # Streamlit 애플리케이션 정의
-st.title("버튼 선택형 챗봇")
+st.title("선택형 챗봇")
+
+# 선택한 질문을 저장할 변수
+selected_question = st.empty()
 
 # 질문 선택을 위한 버튼
-selected_question = st.selectbox("질문 선택:", list(chatbot.responses.keys()))
+if selected_question.button("질문 선택"):
+    selected_question.selectbox("질문 선택:", list(chatbot.responses.keys()))
 
 # 버튼 클릭 이벤트 처리
 if st.button("챗봇에게 질문"):
-    bot_response = chatbot.get_response(selected_question)
+    question = selected_question.selectbox("질문 선택:", list(chatbot.responses.keys()))
+    bot_response = chatbot.get_response(question)
 
     # 챗봇 응답 출력
     st.write("챗봇 응답:", bot_response)
