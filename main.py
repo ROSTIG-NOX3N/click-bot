@@ -90,16 +90,13 @@ chatbot = ChatBot()
 # 스트림릿 앱의 제목을 설정합니다.
 st.title("부산 안내 챗봇")
 
-# 사용자에게 질문을 입력 받는 컴포넌트를 추가합니다.
-question = st.selectbox("질문 선택", list(chatbot.responses.keys()))
+# 5개의 질문을 버튼으로 표시하고 각 버튼을 클릭할 때 질문을 선택합니다.
+question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "---질문 선택---"은 제외합니다.
+selected_questions = st.multiselect("5개의 질문 선택", question_options, default=[])
 
-# "새로운 질문 생성하기" 버튼을 추가합니다.
-if st.button("새로운 질문 생성하기"):
-    # 새로운 질문을 생성합니다.
-    question = chatbot.get_random_question(question)
-
-# 사용자가 질문을 선택하면 해당 질문에 대한 답변을 출력합니다.
-if question != "---질문 선택---":
-    response = chatbot.get_response(question)
-    st.text("답변:")
-    st.write(response)
+# 선택한 질문에 대한 답변을 출력합니다.
+for question in selected_questions:
+    if question:
+        response = chatbot.get_response(question)
+        st.text(f"질문: {question}")
+        st.write(f"답변: {response}")
