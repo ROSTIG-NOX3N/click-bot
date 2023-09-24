@@ -215,26 +215,7 @@ class ChatBot:
 chatbot = ChatBot()
 
 # 스트림릿 앱의 제목을 설정합니다.
-st.title("챗봇")
-
-# CSS 스타일을 적용할 HTML 요소를 생성합니다.
-style = 
-<style>
-    /* 여기에 사용자 정의 CSS 스타일을 추가하세요 */
-    .custom-button {
-        background-color: green;
-        color: white;
-        font-size: 16px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .custom-button:hover {
-        background-color: darkgreen;
-    }
-</style>
-
+st.title("클릭형 챗봇")
 
 # CSS 스타일을 적용합니다.
 st.markdown(style, unsafe_allow_html=True)
