@@ -92,7 +92,8 @@ class ChatBot:
         }
 
     def get_response(self, question):
-        return self.responses.get(question, "그 질문에 대한 답변을 모르겠어요.")
+        response_list = self.responses.get(question, ["그 질문에 대한 답변을 모르겠어요."])
+        return random.choice(response_list)
 
 # 챗봇 인스턴스 생성
 chatbot = ChatBot()
