@@ -68,13 +68,11 @@ chatbot = ChatBot()
 # 스트림릿 앱의 제목을 설정합니다.
 st.title("부산 안내 챗봇")
 
-# 5개의 질문을 체크박스로 표시하고 각각의 질문에 대한 답변을 받을 수 있습니다.
+# 각 질문에 대한 버튼을 생성하고 버튼이 클릭되면 해당 질문에 대한 답변을 출력합니다.
 question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "---질문 선택---"은 제외합니다.
-selected_questions = st.multiselect("5개의 질문 선택", question_options, default=[])
 
-# 선택한 질문에 대한 답변을 출력합니다.
-for question in selected_questions:
-    if question:
+for question in question_options:
+    if st.button(question):
         response = chatbot.get_response(question)
         st.text(f"질문: {question}")
         st.write(f"답변: {response}")
