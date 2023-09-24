@@ -23,9 +23,6 @@ from streamlit_folium import st_folium
 from streamlit_option_menu import option_menu
 from streamlit_js_eval import get_browser_language
 
-import streamlit as st
-import random
-
 class ChatBot:
     def __init__(self):
         # 질문과 대답을 매핑한 딕셔너리를 초기화합니다.
@@ -90,10 +87,31 @@ class ChatBot:
                 "엑스포는 혁신과 기술 개발을 촉진하는 플랫폼으로 활용되고 참가 국가들은 자국의 과학과 기술 분야의 발전을 선보여 혁신적인 솔루션을 제공합니다."
             ]
         }
+        # 이미 사용된 대답을 기록하는 변수
+        self.used_responses = {}
 
     def get_response(self, question):
         response_list = self.responses.get(question, ["그 질문에 대한 답변을 모르겠어요."])
-        return random.choice(response_list)
+        
+        # 이미 사용된 대답 제외
+        unused_responses = [resp for resp in response_list if resp not in self.used_responses.get(question, [])]
+        
+        if not unused_responses:
+            # 모든 대답을 이미 사용한 경우, 대답 기록 초기화
+            self.used_responses[question] = []
+            unused_responses = response_list
+        
+        # 랜덤하게 대답 선택
+        selected_response = random.choice(unused_responses)
+        
+        # 사용된 대답 기록 업데이트
+        self.used_responses.setdefault(question, []).append(selected_response)
+        
+        return selected_response
+
+    def reset_responses(self):
+        # 대답 기록 초기화
+        self.used_responses = {}
 
 # 챗봇 인스턴스 생성
 chatbot = ChatBot()
@@ -111,3 +129,4 @@ if st.button("챗봇에게 질문"):
 
     # 챗봇 응답 출력
     st.write("챗봇 응답:", bot_response)
+
