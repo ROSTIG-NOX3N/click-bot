@@ -292,16 +292,45 @@ for question in question_options:
         st.success(response)
 
 # Streamlit 앱의 제목을 설정합니다.
-st.title("위치 표시 예제")
+st.title("부산 여행 추천 및 위치 표시")
+
+# 사용자의 질문을 입력받습니다.
+user_question = st.selectbox("질문을 선택하세요", [
+    "부산에서 가볼만한 관광지에 대해 추천해줘",
+    "부산에서 가볼만한 맛집에 대해 추천해줘",
+    "부산에서 가볼만한 자연/공원에 대해 추천해줘",
+    "부산에서 가볼만한 카페/디저트에 대해 추천해줘"
+])
+
+# 사용자의 질문에 따른 답변과 위치 정보를 설정합니다.
+answer = ""
+location = None
+
+if user_question == "부산에서 가볼만한 관광지에 대해 추천해줘":
+    answer = "해동용궁사를 추천합니다."
+    location = [35.11948, 129.03833]  # 예시 위치 (해동용궁사)
+
+elif user_question == "부산에서 가볼만한 맛집에 대해 추천해줘":
+    answer = "해목 해운대점을 추천합니다."
+    location = [35.16393, 129.16092]  # 예시 위치 (해목 해운대점)
+
+elif user_question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
+    answer = "해운대 해수욕장을 추천합니다."
+    location = [35.15833, 129.16000]  # 예시 위치 (해운대 해수욕장)
+
+elif user_question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
+    answer = "모모스커피 부산본점을 추천합니다."
+    location = [35.15922, 129.16147]  # 예시 위치 (모모스커피 부산본점)
 
 # 지도를 생성합니다.
-m = folium.Map(location=[35.17944, 129.07556], zoom_start=13)  # 위도와 경도를 설정하여 초기 위치를 지정합니다.
+m = folium.Map(location=[35.17944, 129.07556], zoom_start=12)  # 초기 위치를 지정합니다.
 
-# 마커를 추가합니다. 예시로 부산 태종대의 위치를 추가해보겠습니다.
-folium.Marker([35.1742, 129.1814], tooltip="태종대").add_to(m)
+# 위치 정보가 있는 경우 마커를 추가합니다.
+if location:
+    folium.Marker(location, tooltip=answer).add_to(m)
 
 # Streamlit에 Folium 맵을 표시합니다.
 st_folium(m)
 
-# 선택한 위치에 대한 정보를 출력합니다.
-st.write("선택한 위치: 태종대")
+# 답변을 출력합니다.
+st.write(answer)
