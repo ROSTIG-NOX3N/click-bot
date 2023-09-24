@@ -221,7 +221,12 @@ st.title("챗봇")
 question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "---질문 선택---"은 제외합니다.
 
 for question in question_options:
-    if st.button(question):
+    button_key = f"button_{question}"  # 버튼의 고유한 키를 생성합니다.
+    if st.button(question, key=button_key, help="이 버튼을 클릭하여 질문에 대한 답변을 확인하세요.", 
+                 use_container_width=True, # 버튼을 컨테이너 너비에 맞게 확장합니다.
+                 bg_color="green",        # 버튼의 배경색을 녹색으로 지정합니다.
+                 text_color="white",      # 버튼 텍스트의 색상을 흰색으로 지정합니다.
+                 font_size=16):           # 버튼 텍스트의 폰트 크기를 조정합니다.
         response = chatbot.get_response(question)
         st.write(f"{question}라는 질문을 받았습니다.")
         st.write(f"{response}")
