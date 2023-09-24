@@ -217,16 +217,33 @@ chatbot = ChatBot()
 # 스트림릿 앱의 제목을 설정합니다.
 st.title("챗봇")
 
+# CSS 스타일을 적용할 HTML 요소를 생성합니다.
+style = """
+<style>
+    /* 여기에 사용자 정의 CSS 스타일을 추가하세요 */
+    .custom-button {
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .custom-button:hover {
+        background-color: darkgreen;
+    }
+</style>
+"""
+
+# CSS 스타일을 적용합니다.
+st.markdown(style, unsafe_allow_html=True)
+
 # 각 질문에 대한 버튼을 생성하고 버튼이 클릭되면 해당 질문에 대한 답변을 출력합니다.
 question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "---질문 선택---"은 제외합니다.
 
 for question in question_options:
-    button_key = f"button_{question}"  # 버튼의 고유한 키를 생성합니다.
-    if st.button(question, key=button_key, help="이 버튼을 클릭하여 질문에 대한 답변을 확인하세요.", 
-                 use_container_width=True, # 버튼을 컨테이너 너비에 맞게 확장합니다.
-                 bg_color="green",        # 버튼의 배경색을 녹색으로 지정합니다.
-                 text_color="white",      # 버튼 텍스트의 색상을 흰색으로 지정합니다.
-                 font_size=16):           # 버튼 텍스트의 폰트 크기를 조정합니다.
+    if st.button(question, key=f"button_{question}", help="이 버튼을 클릭하여 질문에 대한 답변을 확인하세요."):
         response = chatbot.get_response(question)
         st.write(f"{question}라는 질문을 받았습니다.")
         st.write(f"{response}")
