@@ -70,6 +70,12 @@ class ChatBot:
             ]
         }
     
+    def get_random_question(self, current_question):
+        # 현재 질문을 제외하고 랜덤하게 질문을 선택합니다.
+        question_list = list(self.responses.keys())
+        question_list.remove(current_question)
+        return random.choice(question_list)
+    
     def get_response(self, question):
         # 질문에 해당하는 대답을 랜덤하게 선택합니다.
         if question in self.responses:
@@ -89,7 +95,8 @@ question = st.selectbox("질문 선택", list(chatbot.responses.keys()))
 
 # "새로운 질문 생성하기" 버튼을 추가합니다.
 if st.button("새로운 질문 생성하기"):
-    question = "---질문 선택---"
+    # 새로운 질문을 생성합니다.
+    question = chatbot.get_random_question(question)
 
 # 사용자가 질문을 선택하면 해당 질문에 대한 답변을 출력합니다.
 if question != "---질문 선택---":
