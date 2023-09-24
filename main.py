@@ -42,7 +42,7 @@ class ChatBot:
 chatbot = ChatBot()
 
 # Streamlit 애플리케이션 정의
-st.title("2030 월드엑스포에 대해 물어보세요!")
+st.title("부산 2030 월드엑스포를 물어보세요!")
 st.markdown("[Expo Link](https://www.expo2030busan.kr/index.do)")
 
 # 질문 선택을 위한 버튼
