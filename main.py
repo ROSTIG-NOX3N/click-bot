@@ -246,4 +246,4 @@ for question in question_options:
     if st.button(question, key=f"button_{question}", help="이 버튼을 클릭하여 질문에 대한 답변을 확인하세요."):
         response = chatbot.get_response(question)
         st.warning(f"'{question}' 라는 질문을 받았습니다.")
-        st.success(f"response")
+        st.success(f"{response}")
