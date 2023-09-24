@@ -291,3 +291,17 @@ for question in question_options:
         st.warning(f"'{question}' 라는 질문을 받았습니다.")
         st.success(response)
 
+# Streamlit 앱의 제목을 설정합니다.
+st.title("위치 표시 예제")
+
+# 지도를 생성합니다.
+m = folium.Map(location=[35.17944, 129.07556], zoom_start=13)  # 위도와 경도를 설정하여 초기 위치를 지정합니다.
+
+# 마커를 추가합니다. 예시로 부산 태종대의 위치를 추가해보겠습니다.
+folium.Marker([35.1742, 129.1814], tooltip="태종대").add_to(m)
+
+# Streamlit에 Folium 맵을 표시합니다.
+st_folium(m)
+
+# 선택한 위치에 대한 정보를 출력합니다.
+st.write("선택한 위치: 태종대")
