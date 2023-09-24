@@ -244,11 +244,7 @@ class ChatBot:
         }
 
     
-    def get_random_question(self, current_question):
-        # 현재 질문을 제외하고 랜덤하게 질문을 선택합니다.
-        question_list = list(self.responses.keys())
-        question_list.remove(current_question)
-        return random.choice(question_list)
+
     
     def get_response(self, question):
         # 질문에 해당하는 대답을 랜덤하게 선택합니다.
