@@ -1,27 +1,5 @@
-import io
-import matplotlib
-import folium
 import random
-
 import streamlit as st
-import streamlit.components.v1 as html
-import numpy as np
-import pandas as pd
-import plotly.express as px
-import plotly.graph_objs as go
-import matplotlib.pyplot as plt
-
-import i18n
-import style
-import assets
-import data
-import requests
-import json
-
-from PIL import Image
-from streamlit_folium import st_folium
-from streamlit_option_menu import option_menu
-from streamlit_js_eval import get_browser_language
 
 class ChatBot:
     def __init__(self):
@@ -90,7 +68,7 @@ chatbot = ChatBot()
 # 스트림릿 앱의 제목을 설정합니다.
 st.title("부산 안내 챗봇")
 
-# 5개의 질문을 버튼으로 표시하고 각 버튼을 클릭할 때 질문을 선택합니다.
+# 5개의 질문을 체크박스로 표시하고 각각의 질문에 대한 답변을 받을 수 있습니다.
 question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "---질문 선택---"은 제외합니다.
 selected_questions = st.multiselect("5개의 질문 선택", question_options, default=[])
 
