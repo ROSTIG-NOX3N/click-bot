@@ -87,8 +87,8 @@ st.title("부산 안내 챗봇")
 # 사용자에게 질문을 입력 받는 컴포넌트를 추가합니다.
 question = st.selectbox("질문 선택", list(chatbot.responses.keys()))
 
-# "새로운 질문" 버튼을 추가합니다.
-if st.button("새로운 질문"):
+# "새로운 질문 생성하기" 버튼을 추가합니다.
+if st.button("새로운 질문 생성하기"):
     question = "---질문 선택---"
 
 # 사용자가 질문을 선택하면 해당 질문에 대한 답변을 출력합니다.
