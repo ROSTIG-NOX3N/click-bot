@@ -218,7 +218,7 @@ chatbot = ChatBot()
 st.title("챗봇")
 
 # CSS 스타일을 적용할 HTML 요소를 생성합니다.
-style = """
+style = 
 <style>
     /* 여기에 사용자 정의 CSS 스타일을 추가하세요 */
     .custom-button {
@@ -234,7 +234,7 @@ style = """
         background-color: darkgreen;
     }
 </style>
-"""
+
 
 # CSS 스타일을 적용합니다.
 st.markdown(style, unsafe_allow_html=True)
@@ -245,5 +245,5 @@ question_options = list(chatbot.responses.keys())[1:]  # 첫 번째 옵션인 "-
 for question in question_options:
     if st.button(question, key=f"button_{question}", help="이 버튼을 클릭하여 질문에 대한 답변을 확인하세요."):
         response = chatbot.get_response(question)
-        st.write(f"{question}라는 질문을 받았습니다.")
-        st.write(f"{response}")
+        st.info(f"{question}라는 질문을 받았습니다.")
+        st.success(f"{response}")
