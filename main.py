@@ -26,6 +26,7 @@ from streamlit_js_eval import get_browser_language
 class ChatBot:
     def __init__(self):
         self.responses = {
+            "---질문 선택---": "",
             "안녕": "안녕하세요!",
             "날씨 어때?": "오늘은 맑아요.",
             "이름이 뭐야?": "저는 챗봇이에요."
