@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
+import openpyxl
 
 excel_file_path = "data.xlsx"  # Excel 파일의 경로를 지정해야 합니다.
 df = pd.read_excel(excel_file_path)
