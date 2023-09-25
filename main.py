@@ -238,16 +238,13 @@ with tab1:
             st.success(f"장소: {x[i]}")
             st.info(f"답변: {y[i]}")
      
-    latitude = st.session_state.get('latitude', [0])
-    longitude = st.session_state.get('longitude', [0])
-     
     latitude_value = latitude[i]
     longitude_value = longitude[i]
     
     
     data = pd.DataFrame({
-        'latitude': latitude_value,
-        'longitude': longitude_value
+        'latitude': [latitude_value],
+        'longitude': [longitude_value]
     })
     st.map(data)
 
