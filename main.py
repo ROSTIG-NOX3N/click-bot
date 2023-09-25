@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Excel 파일을 읽고 데이터 가져오기
-df = pd.read_excel("C:/Users/USER/Desktop/data.xlsx")
+df = pd.read_excel("data.xlsx")
 
 def bring_data():
     spots_df = df[df['분류'] == '관광지']
