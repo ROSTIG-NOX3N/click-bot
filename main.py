@@ -216,8 +216,13 @@ with tab1:
 with tab2:
     st.title('부산의 지도')
 
-    df = pd.DataFrame(
-        np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-        columns=['lat', 'lon'])
+    center_lat, center_lon = 35.1594965345398, 129.162576586723
+
+    m = folium.Map(location=[35.162336558296, 129.17479991912842], zoom_start=14)
     
-    st.map(df)
+    folium.Marker(location=[35.162336558296, 129.17479991912842]).add_to(m)
+    
+    st_data = st_folium(m, width=725)
+    
+    st.info('해운대의 주소')
+    st.success('부산광역시 해운대구')
