@@ -25,7 +25,8 @@ from streamlit_option_menu import option_menu
 from streamlit_js_eval import get_browser_language
 
 
-
+st.set_page_config(layout="wide")
+empty1,con1,empty2 = st.columns([0.3,1.0,0.3])
 assets.import_assets("assets/style.css", st)
 
 
