@@ -194,7 +194,8 @@ with tab1:
     if expo_next_btn_clicked: #다음 버튼
         if i >= len(x) -1 :
             i = len(x) -1
-            st.warning('마지막 답변입니다.')
+            st.error('처음 답변입니다.')
+            st.warning('다음 답변 버튼을 클릭해주십시오.')
         else :
             i += 1
             st.session_state['i'] = i
@@ -205,7 +206,8 @@ with tab1:
     if expo_back_btn_clicked: #이전 버튼
         if i <= 0 :
             i = 0
-            st.warning('처음 답변입니다.')
+            st.error('마지막 답변입니다.')
+            st.warning('이전 답변 버튼을 클릭해주십시오.')
         else:
             i -= 1
             st.session_state['i'] = i
