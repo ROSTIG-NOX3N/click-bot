@@ -297,202 +297,199 @@ st.title("부산 여행 추천 및 위치 표시")
 location = None
 
 if question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 용궁사1
+    chatbot.get_response(question) = 용궁사1
     location = [35.5368, 129.2051]  # (해동용궁사)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 용궁사2
+    chatbot.get_response(question) = 용궁사2
     location = [35.5368, 129.2051]  # (해동용궁사)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 용궁사3
+    chatbot.get_response(question) = 용궁사3
     location = [35.5368, 129.2051]  # (해동용궁사)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 용궁사4
+    chatbot.get_response(question) = 용궁사4
     location = [35.5368, 129.2051]  # (해동용궁사)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 해운대1
+    chatbot.get_response(question) = 해운대1
     location = [35.1631, 129.1635]  # (해운대)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 해운대2
+    chatbot.get_response(question) = 해운대2
     location = [35.1631, 129.1635]  # (해운대)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 해운대3
+    chatbot.get_response(question) = 해운대3
     location = [35.1631, 129.1635]  # (해운대)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 남포동1
+    chatbot.get_response(question) = 남포동1
     location = [35.0673, 129.0916]  # (남포동)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 남포동2
+    chatbot.get_response(question) = 남포동2
     location = [35.0673, 129.0916]  # (남포동)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 남포동3
+    chatbot.get_response(question) = 남포동3
     location = [35.0971, 129.0346]  # (남포동)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 태종대1
+    chatbot.get_response(question) = 태종대1
     location = [35.0673, 129.0916]  # (태종대)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 태종대2
+    chatbot.get_response(question) = 태종대2
     location = [35.0673, 129.0916]  # (태종대)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 송도해상케이블카1
+    chatbot.get_response(question) = 송도해상케이블카1
     location = [35.0597, 129.1183]  # (송도)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 송도해상케이블카2
+    chatbot.get_response(question) = 송도해상케이블카2
     location = [35.0597, 129.1183]  # (송도)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 감천문화마을1
+    chatbot.get_response(question) = 감천문화마을1
     location = [35.0973, 129.0125]  # (감천)
 
 elif question == "부산에서 가볼만한 관광지에 대해 추천해줘":
-    real_answer = 감천문화마을2
+    chatbot.get_response(question) = 감천문화마을2
     location = [35.0973, 129.0125]  # (감천)
 
 elif question == "부산에서 가볼만한 맛집에 대해 추천해줘":
-    real_answer = 해목1
+    chatbot.get_response(question) = 해목1
     location = [35.0962, 129.04422]  # (해목)
 
 elif question == "부산에서 가볼만한 맛집에 대해 추천해줘":
-    real_answer = 선창횟집1
+    chatbot.get_response(question) = 선창횟집1
     location = [35.1592, 129.1751]  # (선창횟집)
 
 elif question == "부산에서 가볼만한 맛집에 대해 추천해줘":
-    real_answer = 금수복국1
+    chatbot.get_response(question) = 금수복국1
     location = [35.0952, 129.0342]  # (금수복국)
 
 elif question == "부산에서 가볼만한 맛집에 대해 추천해줘":
-    real_answer = 이재모피자1
+    chatbot.get_response(question) = 이재모피자1
     location = [35.1592, 129.1751]  # (이재모피자)
 
 elif question == "부산에서 가볼만한 맛집에 대해 추천해줘":
-    real_answer = 할매국밥1
+    chatbot.get_response(question) = 할매국밥1
     location = [35.0951, 129.0331]  # (할매국밥)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 해운대해수욕장1
+    chatbot.get_response(question) = 해운대해수욕장1
     location = [35.1586, 129.1600]  # (해운대 해수욕장)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 해운대해수욕장2
+    chatbot.get_response(question) = 해운대해수욕장2
     location = [35.1586, 129.1600]  # (해운대 해수욕장)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 해운대해수욕장3
+    chatbot.get_response(question) = 해운대해수욕장3
     location = [35.1586, 129.1600]  # (해운대 해수욕장)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 광안리1
+    chatbot.get_response(question) = 광안리1
     location = [35.1538, 129.1162]  # (광안리)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 광안리2
+    chatbot.get_response(question) = 광안리2
     location = [35.1538, 129.1162]  # (광안리)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 기념공원1
+    chatbot.get_response(question) = 기념공원1
     location = [35.1569, 129.1290]  # (기념공원)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 기념공원2
+    chatbot.get_response(question) = 기념공원2
     location = [35.1569, 129.1290]  # (기념공원)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 기념공원3
+    chatbot.get_response(question) = 기념공원3
     location = [35.1569, 129.1290]  # (기념공원)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 용두산1
+    chatbot.get_response(question) = 용두산1
     location = [35.1536, 129.1665]  # (용두산)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 용두산2
+    chatbot.get_response(question) = 용두산2
     location = [35.1536, 129.1665]  # (용두산)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 송도1
+    chatbot.get_response(question) = 송도1
     location = [35.2163, 128.6811]  # (송도)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 송도2
+    chatbot.get_response(question) = 송도2
     location = [35.2163, 128.6811]  # (송도)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 송도3
+    chatbot.get_response(question) = 송도3
     location = [35.2163, 128.6811]  # (송도)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 이기대1
+    chatbot.get_response(question) = 이기대1
     location = [35.1794, 129.0771]  # (이기대)
 
 elif question == "부산에서 가볼만한 자연/공원에 대해 추천해줘":
-    real_answer = 이기대2
+    chatbot.get_response(question) = 이기대2
     location = [35.1794, 129.0771]  # (이기대)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 모모스커피1
+    chatbot.get_response(question) = 모모스커피1
     location = [35.1548, 129.1634]  # (모모스커피 부산본점)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 모모스커피2
+    chatbot.get_response(question) = 모모스커피2
     location = [35.1548, 129.16347]  # (모모스커피 부산본점)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 에테르1
+    chatbot.get_response(question) = 에테르1
     location = [35.1579, 129.1610]  # (에테르)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 에테르2
+    chatbot.get_response(question) = 에테르2
     location = [35.1579, 129.1610]  # (에테르)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 초량1
+    chatbot.get_response(question) = 초량1
     location = [35.1071, 129.0336]  # (초량1941)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 초량2
+    chatbot.get_response(question) = 초량2
     location = [35.1071, 129.0336]  # (초량1941)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 코랄라니1
+    chatbot.get_response(question) = 코랄라니1
     location = [35.1466, 129.1071]  # (코랄라니)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 코랄라니2
+    chatbot.get_response(question) = 코랄라니2
     location = [35.1466, 129.1071]  # (코랄라니)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 오션브리즈1
+    chatbot.get_response(question) = 오션브리즈1
     location = [35.1584, 129.1629]  # (오션브리즈)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 볼트1
+    chatbot.get_response(question) = 볼트1
     location = [35.1495, 129.1232]  # (볼트)
 
 elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해줘":
-    real_answer = 볼트2
+    chatbot.get_response(question) = 볼트2
     location = [35.1495, 129.1232]  # (볼트)
 
 st.write('GoogleMap')
 # 지도를 생성합니다.
 m = folium.Map(location=[35.16870, 129.13549], zoom_start=12)  # 초기 위치를 지정합니다.
 
-# 위치 정보가 있는 경우 마커를 추가합니다.
-location = [35.16870, 129.13549]  # 예시 위치 정보입니다.
-
 if location:
-    folium.Marker(location=location, tooltip=real_answer).add_to(m)
+    folium.Marker(location=location, tooltip=chatbot.get_response(question).add_to(m)
 
 # Streamlit에 Folium 맵을 표시합니다.
 st_folium(m)
