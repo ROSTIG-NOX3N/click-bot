@@ -217,7 +217,7 @@ with tab1:
         
 # 두 번째 탭에 해운대 지도 추가
 with tab2:
-    st.title(f'{x[i]}의 위치')
+    st.title('부산의 지도')
     
     # 부산 중심 좌표
     center_lat, center_lon = 35.1594965345398, 129.162576586723
