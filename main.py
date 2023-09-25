@@ -483,6 +483,7 @@ elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해
     answers = 볼트2
     location = [35.1495, 129.1232]  # (볼트)
 
+st.write('지도보기')
 # 지도를 생성합니다.
 m = folium.Map( location=[35.16870, 129.13549], zoom_start=12)  # 초기 위치를 지정합니다.
 
