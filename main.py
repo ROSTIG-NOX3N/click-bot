@@ -485,13 +485,14 @@ elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해
 
 st.write('지도보기')
 # 지도를 생성합니다.
-m = folium.Map( location=[35.16870, 129.13549], zoom_start=12)  # 초기 위치를 지정합니다.
+m = folium.Map(location=[35.16870, 129.13549], zoom_start=12)  # 초기 위치를 지정합니다.
 
 # 위치 정보가 있는 경우 마커를 추가합니다.
+location = [35.16870, 129.13549]  # 예시 위치 정보입니다.
+answers = "마커 툴팁 텍스트"  # 예시 툴팁 텍스트입니다.
+
 if location:
-    folium.Marker(location, tooltip=answers).add_to(m)
-    marker.add_to(m)
+    folium.Marker(location=location, tooltip=answers).add_to(m)
 
 # Streamlit에 Folium 맵을 표시합니다.
 st_folium(m)
-
