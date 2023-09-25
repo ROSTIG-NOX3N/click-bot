@@ -31,8 +31,8 @@ st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지
 # 두 개의 컬럼 생성
 tab1, tab2 = st.tabs(["챗봇", "지도"])
 
-# 첫 번째 컬럼에 해운대 지도 추가
-with tab1:
+# 두 번째 탭에 해운대 지도 추가
+with tab2:
     st.title('해운대의 지도')
     
     # 부산 중심 좌표
@@ -46,8 +46,8 @@ with tab1:
     st_data = st_folium(m, width=725)
 
 
-# 두 번째 컬럼에 챗봇 영역 추가
-with tab2:
+# 첫번째 탭에 챗봇 영역 추가
+with tab1:
     st.title('챗봇 영역')
     st.write('챗봇 내용을 이곳에 배치하세요.')
 
