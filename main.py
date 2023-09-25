@@ -486,7 +486,7 @@ elif question == "부산에서 가볼만한 카페/디저트에 대해 추천해
     location = [35.1495, 129.1232]  # (볼트)
 
 # 지도를 생성합니다.
-m = folium.Map(location=[35.17944, 129.07556], zoom_start=12)  # 초기 위치를 지정합니다.
+m = folium.Map( location=[35.16870, 129.13549], zoom_start=12)  # 초기 위치를 지정합니다.
 
 # 위치 정보가 있는 경우 마커를 추가합니다.
 if location:
