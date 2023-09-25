@@ -33,9 +33,6 @@ tab1, tab2 = st.tabs(["챗봇", "지도"])
 
 # 첫번째 탭에 챗봇 영역 추가
 with tab1:
-    st.title('챗봇 영역')
-    st.write('챗봇 내용을 이곳에 배치하세요.')
-
     df = pd.read_excel("data.xlsx")
 
     def tourist_data():
@@ -220,7 +217,8 @@ with tab1:
     if expo_next_btn_clicked: #다음 버튼
         if i >= len(x) -1 :
             i = len(x) -1
-            st.warning('마지막입니다.')
+            st.error('마지막 답변입니다.')
+            st.warning('이전 답변 버튼을 클릭해주십시오.')
         else :
             i += 1
             st.session_state['i'] = i
@@ -231,12 +229,16 @@ with tab1:
     if expo_back_btn_clicked: #이전 버튼
         if i <= 0 :
             i = 0
-            st.warning('처음입니다.')
+            st.error('처음 답변입니다.')
+            st.warning('다음 답변 버튼을 클릭해주십시오.')
         else:
             i -= 1
             st.session_state['i'] = i
             st.success(f"장소: {x[i]}")
             st.info(f"답변: {y[i]}")
+     
+    latitude = st.session_state.get('latitude', [0])
+    longitude = st.session_state.get('longitude', [0])
      
     latitude_value = latitude[i]
     longitude_value = longitude[i]
@@ -247,6 +249,7 @@ with tab1:
         'longitude': [longitude_value]
     })
     st.map(data)
+
 
 # 두 번째 탭에 해운대 지도 추가
 with tab2:
