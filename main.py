@@ -26,7 +26,25 @@ from streamlit_js_eval import get_browser_language
 
 assets.import_assets("assets/style.css", st)
 
+
 st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지 추천 </h1>", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1 :
+    col11, col12, col13 = st.columns([1,6,1])
+
+    with col11 :
+        st.write(' ')
+
+    with col12 :
+        st.image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.facebook.com%2Fbusanworldexpo2030%2Fevents%2F%3Flocale%3Dda_DK&psig=AOvVaw3aKQWCRcP-dcUyxJ7seRvl&ust=1695747425465000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNjkjcmdxoEDFQAAAAAdAAAAABAk', width=85)
+
+    with col13 :
+        st.write(' ')
+
+with col2 :
+    st.write('1')
 
 # 두 개의 컬럼 생성
 tab1, tab2 = st.tabs(["챗봇", "지도"])
