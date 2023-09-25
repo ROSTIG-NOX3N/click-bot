@@ -238,27 +238,21 @@ with tab1:
             st.success(f"장소: {x[i]}")
             st.info(f"답변: {y[i]}")
      
-    latitude = st.session_state.get('latitude', [35.1594965345398])
-    longitude = st.session_state.get('longitude', [129.162576586723])
+    latitude = st.session_state.get('latitude', [0])
+    longitude = st.session_state.get('longitude', [0])
+     
+    latitude_value = latitude[i]
+    longitude_value = longitude[i]
     
     
     data = pd.DataFrame({
-        'latitude': latitude,
-        'longitude': longitude
+        'latitude': [latitude_value],
+        'longitude': [longitude_value]
     })
     st.map(data)
-        
+
 # 두 번째 탭에 해운대 지도 추가
 with tab2:
     st.title('부산의 지도')
 
-    center_lat, center_lon = 35.1594965345398, 129.162576586723
 
-    m = folium.Map(location=[35.162336558296, 129.17479991912842], zoom_start=20)
-    
-    folium.Marker(location=[35.162336558296, 129.17479991912842]).add_to(m)
-    
-    st_data = st_folium(m, width=725)
-    
-    st.info('해운대의 주소')
-    st.success('부산광역시 해운대구')
