@@ -246,8 +246,8 @@ with tab1:
     
     
     data = pd.DataFrame({
-        'latitude': [latitude_value],
-        'longitude': [longitude_value]
+        'latitude': latitude_value,
+        'longitude': longitude_value
     })
     st.map(data)
 
