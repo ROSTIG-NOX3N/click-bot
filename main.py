@@ -494,5 +494,3 @@ if location:
 # Streamlit에 Folium 맵을 표시합니다.
 st_folium(m)
 
-# 답변을 출력합니다.
-st.write(f'{response}')
