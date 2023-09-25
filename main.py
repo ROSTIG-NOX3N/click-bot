@@ -29,10 +29,10 @@ assets.import_assets("assets/style.css", st)
 st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지 추천 </h1>", unsafe_allow_html=True)
 
 # 두 개의 컬럼 생성
-col1, col2 = st.beta_columns([2, 1])
+tab1, tab2 = st.tabs(["챗봇", "지도"])
 
 # 첫 번째 컬럼에 해운대 지도 추가
-with col1:
+with tab1:
     st.title('해운대의 지도')
     
     # 부산 중심 좌표
@@ -47,7 +47,7 @@ with col1:
 
 
 # 두 번째 컬럼에 챗봇 영역 추가
-with col2:
+with tab2:
     st.title('챗봇 영역')
     st.write('챗봇 내용을 이곳에 배치하세요.')
 
