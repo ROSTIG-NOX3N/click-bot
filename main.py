@@ -1,17 +1,33 @@
 import streamlit as st
 import pandas as pd
 
-# Excel 파일의 경로를 지정해야 합니다.
-excel_file_path = "data.xlsx"
+# Excel 파일을 읽고 데이터 가져오기
+df = pd.read_excel("C:/Users/USER/Desktop/data.xlsx")
 
-# Streamlit 앱 시작
-st.title('데이터 프레임 표시')
+def bring_data():
+    spots_df = df[df['분류'] == '관광지']
+    spots_df = spots_df.reset_index(drop=True)
+    Q = spots_df['질문']
+    P = spots_df['장소']
+    A = spots_df['답변']
+    latitude = spots_df['위도']
+    longitude = spots_df['경도']
+    
+    return Q, P, A, latitude, longitude
 
-# Excel 파일을 데이터 프레임으로 읽어오기
-try:
-    df = pd.read_excel(excel_file_path)
-    st.write(df)
-except FileNotFoundError:
-    st.error(f"파일을 찾을 수 없습니다: {excel_file_path}")
-except Exception as e:
-    st.error(f"데이터 프레임을 로드하는 중 오류 발생: {e}")
+Q, P, A, latitude, longitude = bring_data()
+
+# 현재 질문을 추적하는 session_state 변수를 초기화합니다.
+if 'current_question_index' not in st.session_state:
+    st.session_state.current_question_index = 0
+
+def tourist():
+    i = st.session_state.current_question_index
+    if i < len(Q):
+        if st.button(f'{Q[i]}'):
+            st.info(f'{A[i]}')
+        if st.button('다음 질문'):
+            i += 1
+            st.session_state.current_question_index = i
+
+tourist()
