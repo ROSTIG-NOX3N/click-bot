@@ -495,4 +495,4 @@ if location:
 st_folium(m)
 
 # 답변을 출력합니다.
-st.write(answers)
+st.write(f'{response}')
