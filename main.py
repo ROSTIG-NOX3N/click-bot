@@ -31,19 +31,7 @@ st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지
 # 두 개의 컬럼 생성
 tab1, tab2 = st.tabs(["챗봇", "지도"])
 
-# 두 번째 탭에 해운대 지도 추가
-with tab2:
-    st.title('해운대의 지도')
-    
-    # 부산 중심 좌표
-    center_lat, center_lon = 35.1594965345398, 129.162576586723
 
-    # Folium 지도 객체 생성
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=14)
-
-    folium.Marker(location=[center_lat, center_lon]).add_to(m)
-
-    st_data = st_folium(m, width=725)
 
 
 # 첫번째 탭에 챗봇 영역 추가
@@ -227,4 +215,16 @@ with tab1:
             st.success(f"장소: {x[i]}")
             st.info(f"답변: {y[i]}")
         
+# 두 번째 탭에 해운대 지도 추가
+with tab2:
+    st.title(f'{x[i]}의 위치')
+    
+    # 부산 중심 좌표
+    center_lat, center_lon = 35.1594965345398, 129.162576586723
 
+    # Folium 지도 객체 생성
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=14)
+
+    folium.Marker(location=[center_lat, center_lon]).add_to(m)
+
+    st_data = st_folium(m, width=725)
