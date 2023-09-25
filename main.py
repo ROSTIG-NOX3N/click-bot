@@ -254,7 +254,7 @@ with tab2:
 
     center_lat, center_lon = 35.1594965345398, 129.162576586723
 
-    m = folium.Map(location=[35.162336558296, 129.17479991912842], zoom_start=14)
+    m = folium.Map(location=[35.162336558296, 129.17479991912842], zoom_start=20)
     
     folium.Marker(location=[35.162336558296, 129.17479991912842]).add_to(m)
     
