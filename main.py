@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import openpyxl
 import requirements
 
 # Excel 파일을 읽고 데이터 가져오기
