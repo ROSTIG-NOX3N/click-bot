@@ -248,8 +248,6 @@ class ChatBot:
         if question in self.responses:
             answers = self.responses[question]
             return random.choice(answers)
-            global answers
-            global question
         else:
             return "죄송해요. 제가 대답할 수 있는 내용이 아닙니다."
 
