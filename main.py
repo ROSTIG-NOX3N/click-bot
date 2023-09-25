@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import openpyxl
 
 # Excel 파일을 읽고 데이터 가져오기
 df = pd.read_excel("data.xlsx")
