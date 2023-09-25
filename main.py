@@ -237,11 +237,6 @@ with tab1:
             st.success(f"장소: {x[i]}")
             st.info(f"답변: {y[i]}")
      
-
-
-
-# 두 번째 탭에 해운대 지도 추가
-with tab2:
     st.title('부산의 지도')
 
     latitude = st.session_state.get('latitude', [35.1594965345398])
@@ -256,3 +251,9 @@ with tab2:
         'longitude': [longitude_value]
     })
     st.map(data)
+
+
+
+# 두 번째 탭에 해운대 지도 추가
+with tab2:
+    st.warning('미완')
