@@ -29,7 +29,7 @@ assets.import_assets("assets/style.css", st)
 st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지 추천 </h1>", unsafe_allow_html=True)
 
 # 두 개의 컬럼 생성
-col1, col2 = st.columns([1, 1])
+empty1,col1,col2,empty2 = st.columns([0.2,0.5,0.5,0.2])
 
 # 첫 번째 컬럼에 해운대 지도 추가
 with col1:
