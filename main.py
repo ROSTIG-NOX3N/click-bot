@@ -36,7 +36,7 @@ with tab1:
     st.title('챗봇 영역')
     st.write('챗봇 내용을 이곳에 배치하세요.')
 
-    df = pd.read_excel("C:/Users/USER/Desktop/data.xlsx")
+    df = pd.read_excel("data.xlsx")
 
     def tourist_data():
         spots_df = df[df['분류'] == '관광지']
