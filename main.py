@@ -49,6 +49,14 @@ with col2 :
 # 두 개의 컬럼 생성
 tab1, tab2 = st.tabs(["챗봇", "지도"])
 
+i = st.session_state.get('i', 0)
+x = st.session_state.get('x', 0)
+y = st.session_state.get('y', 0)
+latitude = st.session_state.get('latitude', 0)
+longitude = st.session_state.get('longitude', 0)
+latitude = st.session_state.get('latitude', [35.1594965345398])
+longitude = st.session_state.get('longitude', [129.162576586723])
+
 # 첫번째 탭에 챗봇 영역 추가
 with tab1:
     df = pd.read_excel("data.xlsx")
@@ -133,12 +141,7 @@ with tab1:
     expo_next_btn_clicked = st.button('다음 답변', key='expo_next_btn')
     expo_back_btn_clicked = st.button('이전 답변', key='expo_back_btn')
     
-    i = st.session_state.get('i', 0)
-    x = st.session_state.get('x', 0)
-    y = st.session_state.get('y', 0)
-    latitude = st.session_state.get('latitude', 0)
-    longitude = st.session_state.get('longitude', 0)
-    
+
     
     
     # 관광지 버튼
@@ -257,8 +260,7 @@ with tab1:
      
     st.title('부산의 지도')
 
-    latitude = st.session_state.get('latitude', [35.1594965345398])
-    longitude = st.session_state.get('longitude', [129.162576586723])
+
      
     latitude_value = latitude[i]
     longitude_value = longitude[i]
