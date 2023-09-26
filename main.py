@@ -1,6 +1,5 @@
 import io
 import matplotlib
-import folium
 
 import streamlit as st
 import streamlit.components.v1 as html
@@ -20,7 +19,6 @@ import random
 import openpyxl
 
 from PIL import Image
-from streamlit_folium import st_folium
 from streamlit_option_menu import option_menu
 from streamlit_js_eval import get_browser_language
 
