@@ -1,5 +1,6 @@
 import io
 import matplotlib
+import folium
 
 import streamlit as st
 import streamlit.components.v1 as html
@@ -17,14 +18,26 @@ import requests
 import json
 import random
 import openpyxl
+import googletrans
 
 from PIL import Image
+from streamlit_folium import st_folium, folium_static
 from streamlit_option_menu import option_menu
 from streamlit_js_eval import get_browser_language
 
+
+
 assets.import_assets("assets/style.css", st)
 
-st.markdown("<h1 style='text-align: center; color: black;'>부산 EXPO 관광지 추천 </h1>", unsafe_allow_html=True)
+try:
+    preferred_language = i18n.FindLangByTag(get_browser_language())
+except AttributeError:
+    preferred_language = "ko"
+    
+language_list = list(i18n.LangList().keys())
+
+
+st.markdown("<h1 style='text-align: center;v '>부산 EXPO 관광지 추천 </h1>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -35,13 +48,23 @@ with col1 :
         st.write(' ')
 
     with col12 :
-        st.image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.facebook.com%2Fbusanworldexpo2030%2Fevents%2F%3Flocale%3Dda_DK&psig=AOvVaw3aKQWCRcP-dcUyxJ7seRvl&ust=1695747425465000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNjkjcmdxoEDFQAAAAAdAAAAABAk', width=85)
+        st.image('https://i.namu.wiki/i/tvGyhYywWMsAcu6DB_LNqDgXsPeaXzDt4Su8mc8pckqINu1ceRlXh6mqVaquCFE9vCBk9Pduf9xkzWr0gcC_Ng.svg', use_column_width=True)
 
     with col13 :
         st.write(' ')
 
 with col2 :
-    st.write('1')
+    language_select = str(
+        st.selectbox("Change Language", ["브라우저 기본 설정", *language_list])
+    )
+    
+    if language_select == "브라우저 기본 설정":
+        language = i18n.LoadLangByCode(preferred_language)
+    else:
+        language = i18n.LoadLangByCode(i18n.LangList(language_select))
+
+
+st.title('EXPO 챗봇')
 
 i = st.session_state.get('i', 0)
 x = st.session_state.get('x', 0)
@@ -52,6 +75,7 @@ latitude = st.session_state.get('latitude', [35.1594965345398])
 longitude = st.session_state.get('longitude', [129.162576586723])
 
 # 첫번째 탭에 챗봇 영역 추가
+
 df = pd.read_excel("data.xlsx")
 
 def tourist_data():
@@ -114,7 +138,6 @@ def expo_data():
     longitude5 = spots_df['경도']
     return Q5, P5, A5, latitude5, longitude5
 
-
 #반복문으로 만들 수 있을것 처럼 보임
 Q0, P0, A0, latitude0, longitude0 = tourist_data()
 Q1, P1, A1, latitude1, longitude1 = restaurant_data()
@@ -122,8 +145,6 @@ Q2, P2, A2, latitude2, longitude2 = nature_data()
 Q3, P3, A3, latitude3, longitude3 = cafe_data()
 Q4, P4, A4, latitude4, longitude4 = expect_data()
 Q5, P5, A5, latitude5, longitude5 = expo_data()
-
-
 
 tourist_btn_clicked = st.button(f'{Q0[0]}', key='tourist_btn')
 restaurant_btn_clicked = st.button(f'{Q1[0]}', key='restaurant_btn')
@@ -133,9 +154,6 @@ expect_btn_clicked = st.button(f'{Q4[0]}', key='expect_btn')
 expo_btn_clicked = st.button(f'{Q5[0]}', key='expo_btn')
 expo_next_btn_clicked = st.button('다음 답변', key='expo_next_btn')
 expo_back_btn_clicked = st.button('이전 답변', key='expo_back_btn')
-
-
-
 
 # 관광지 버튼
 if tourist_btn_clicked:
@@ -151,7 +169,7 @@ if tourist_btn_clicked:
     st.session_state['longitude'] = longitude0
     st.success(f"장소: {x[i]}")
     st.info(f"답변: {y[i]}")
-        
+
 # 음식점 버튼
 if restaurant_btn_clicked:
     i = 0
@@ -166,7 +184,7 @@ if restaurant_btn_clicked:
     st.session_state['longitude'] = longitude1
     st.success(f"장소: {x[i]}")
     st.info(f"답변: {y[i]}")
-    
+
 # 자연/공원 버튼
 if nature_btn_clicked:
     i = 0
@@ -227,7 +245,7 @@ if expo_btn_clicked:
     st.success(f"장소: {x[i]}")
     st.info(f"답변: {y[i]}")
 
-    
+
 if expo_next_btn_clicked: #다음 버튼
     if i >= len(x) -1 :
         i = len(x) -1
@@ -238,8 +256,8 @@ if expo_next_btn_clicked: #다음 버튼
         st.session_state['i'] = i
         st.success(f"장소: {x[i]}")
         st.info(f"답변: {y[i]}") 
-        
-           
+
+   
 if expo_back_btn_clicked: #이전 버튼
     if i <= 0 :
         i = 0
@@ -256,8 +274,11 @@ st.title('부산의 지도')
 latitude_value = latitude[i]
 longitude_value = longitude[i]
 
-data = pd.DataFrame({
-    'latitude': [latitude_value],
-    'longitude': [longitude_value]
-})
-st.map(data)
+m = folium.Map(location=[latitude_value, longitude_value], zoom_start=15, use_column_width=True, use_column_height=True, width=700, height=700)
+
+folium.Marker(
+    location=[latitude_value, longitude_value],
+    icon=folium.Icon(color="purple", icon="flag"),
+).add_to(m)
+
+folium_static(m, width=700, height=700)
